@@ -23,6 +23,7 @@ class sampleApplication:
     def createConfigFilesForDevices(self):
         '''
          create configuration for each leaf and spine in IP Fabric
+         
         '''
         l3ClosMediation = L3ClosMediation()
         pods = l3ClosMediation.loadClosDefinition()
@@ -32,6 +33,7 @@ class sampleApplication:
         '''
         setup Zero Touch Provisioning
         generate DHCP config file and restart DHCP server with new dhcp configuration
+        installs DHCP server
         '''
         ztpServer = ZtpServer()
         ztpServer.createPodSpecificDhcpConfFile('anotherPod')
@@ -49,6 +51,7 @@ class sampleApplication:
     def startHTTPserverForZTPFileTransferProtocol(self):
         '''
         start HTTP server to serve as filetransfer mechanism for ZTP/DHCP process
+        run HTTP server on port 80
         '''
         restServer = RestServer()
         restServer.initRest()
